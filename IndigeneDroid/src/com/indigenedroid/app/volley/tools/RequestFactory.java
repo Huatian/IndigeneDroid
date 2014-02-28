@@ -34,6 +34,25 @@ import com.android.volley.toolbox.JsonObjectRequest;
  */
 public class RequestFactory {
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public static <T> Request<T> createRequest(RequestOption options){
+		switch (options.type) {
+		case RequestOption.REQUEST_GSON:
+			return RequestFactory.createGsonRequest(options.method, options.url, options.clsOrType, options.requestBody, options.listener, options.errorListener);
+			
+		case RequestOption.REQUEST_JSON_OBJECT:
+			return (Request<T>) RequestFactory.createJsonObjectRequest(options.method, options.url, options.jsonRequest, (Listener<JSONObject>) options.listener, options.errorListener);
+
+		case RequestOption.REQUEST_JSON_ARRAY:
+			return (Request<T>) RequestFactory.createJsonArrayRequest(options.url, (Listener<JSONArray>) options.listener, options.errorListener);
+			
+		default:
+			break;
+		}
+		
+		return null;
+	}
+	
 	/**
 	 * 实例化一个GsonRequest对象
 	 * 

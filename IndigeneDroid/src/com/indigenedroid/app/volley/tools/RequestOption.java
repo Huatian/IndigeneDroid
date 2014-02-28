@@ -1,9 +1,10 @@
 package com.indigenedroid.app.volley.tools;
 
 import org.json.JSONObject;
+
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
-import com.indigenedroid.app.IDActHelper;
+import com.indigenedroid.app.helper.IDActHelper;
 
 /**
  * 网络请求参数实体类
@@ -11,7 +12,11 @@ import com.indigenedroid.app.IDActHelper;
  *
  * @param <T>
  */
-public class RequestOptions<T> {
+public class RequestOption<T> {
+	
+	public static final int REQUEST_GSON = 0x001;
+	public static final int REQUEST_JSON_OBJECT = 0x002;
+	public static final int REQUEST_JSON_ARRAY = 0x003;
 	
 	// 不同的请求共有的参数
 	public int type;
@@ -43,8 +48,9 @@ public class RequestOptions<T> {
 	 * @param jsonRequest post请求上传参数
 	 * @param requestTag 把Request加入队列时，标示的标签
 	 */
-	public RequestOptions(int type, int method, String url, Listener<T> listener, ErrorListener errorListener, Object clsOrType, String requestBody, JSONObject jsonRequest, String requestTag) {
+	public RequestOption(int type, int method, String url, Listener<T> listener, ErrorListener errorListener, Object clsOrType, String requestBody, JSONObject jsonRequest, String requestTag) {
 		this.type = type;
+		this.method = method;
 		this.url = url;
 		this.listener = listener;
 		this.errorListener = errorListener;
