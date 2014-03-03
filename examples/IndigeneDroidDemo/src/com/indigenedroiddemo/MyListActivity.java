@@ -2,7 +2,6 @@ package com.indigenedroiddemo;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.android.volley.Request;
 import com.android.volley.VolleyError;
 import com.android.volley.Response.ErrorListener;
@@ -14,19 +13,14 @@ import com.indigenedroiddemo.entity.DataModel;
 import com.indigenedroiddemo.entity.FlickrImage;
 import com.indigenedroiddemo.entity.FlickrResponse;
 import com.indigenedroiddemo.entity.FlickrResponsePhotos;
-
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ListView;
 
 public class MyListActivity extends IDListActivity {
 	private ListView mListView;
-	private Button mButton;
 	private List<DataModel> mDataList;
 	private EfficientAdapter mAdapter;
 	@Override
@@ -39,7 +33,6 @@ public class MyListActivity extends IDListActivity {
 	@Override
 	public void initViewAndField() {
 		mListView = getListView();
-		mButton = (Button) findViewById(R.id.send_http);
 		mDataList = new ArrayList<DataModel>();
 		mAdapter = new EfficientAdapter(mDataList);
 		mListView.setAdapter(mAdapter);

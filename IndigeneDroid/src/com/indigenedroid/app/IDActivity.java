@@ -3,9 +3,7 @@ package com.indigenedroid.app;
 import com.indigenedroid.app.helper.IDActHelper;
 import com.indigenedroid.app.view.LoadingDialog;
 import com.indigenedroid.app.volley.tools.RequestOption;
-
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View.OnClickListener;
